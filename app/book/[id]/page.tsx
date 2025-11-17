@@ -97,7 +97,7 @@ export default function BookPage({ params }: any) {
 
   const generate = async (length: string) => {
     setGenerating(true);
-    setSummary("Generating summary...");
+    setSummary(length === 'insights' ? 'Generating insights...' : 'Generating summary...');
     try {
       const res = await fetch("/api/summarize", {
         method: "POST",
