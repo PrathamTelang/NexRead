@@ -381,7 +381,7 @@ export default function BookPage({ params }: any) {
             </div>
           </aside>
 
-          <section className="md:col-span-2">
+          <section className="md:col-span-2 bg-white/5 p-4 rounded-lg border border-gray-200/10 shadow-[inset_-12px_-8px_40px_#46464620]">
             <div className="flex flex-wrap gap-3 items-center mb-4">
               <button className="btn-primary" onClick={() => generate('short')} disabled={generating} aria-busy={generating}>
                 {generating ? 'Generating…' : 'Quick (5p)'}
@@ -390,9 +390,9 @@ export default function BookPage({ params }: any) {
               <button className="btn-primary" onClick={() => generate('long')} disabled={generating}>Deep (20p+)</button>
 
               <div className="ml-auto flex gap-2">
-                <button className="btn-outline" onClick={copySummary} disabled={!summary}>Copy</button>
+                <button className="btn-outline h-8 px-2 cursor-pointer  bg-gray-800/50 hover:bg-gray-700/50 border border-gray-700 hover:border-purple-500/50 rounded-lg font-semibold text-white transition-all" onClick={copySummary} disabled={!summary}>Copy</button>
                 <button
-                  className="btn-outline"
+                  className="btn-outline cursor-pointer h-8 px-2 bg-gray-800/50 hover:bg-gray-700/50 border border-gray-700 hover:border-purple-500/50 rounded-lg font-semibold text-white transition-all"
                   onClick={() => {
                     if (!summary) return;
                     const w = window.open();

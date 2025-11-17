@@ -32,7 +32,7 @@ export function Features() {
 
       <div className="relative z-10 max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">Why Choose SummaryGenie?</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">Why Choose NexRead?</h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
             Everything you need to summarize books and learn faster.
           </p>

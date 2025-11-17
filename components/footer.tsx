@@ -10,14 +10,14 @@ export function Footer() {
           {/* Logo and Brand */}
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center">
-              <span className="text-white font-bold text-lg">SG</span>
+              <span className="text-white font-bold text-lg">NR</span>
             </div>
-            <span className="text-lg font-semibold">SummaryGenie</span>
+            <span className="text-lg font-semibold">NexRead</span>
           </div>
 
           {/* Copyright */}
           <p className="text-sm text-gray-500 text-center md:text-right">
-            © {currentYear} SummaryGenie. All rights reserved.
+            © {currentYear} NexRead. All rights reserved.
           </p>
         </div>
 
