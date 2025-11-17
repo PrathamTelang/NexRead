@@ -383,11 +383,11 @@ export default function BookPage({ params }: any) {
 
           <section className="md:col-span-2 bg-white/5 p-4 rounded-lg border border-gray-200/10 shadow-[inset_-12px_-8px_40px_#46464620]">
             <div className="flex flex-wrap gap-3 items-center mb-4">
-              <button className="btn-primary" onClick={() => generate('short')} disabled={generating} aria-busy={generating}>
-                {generating ? 'Generating…' : 'Quick (5p)'}
+              <button className="btn-primary group h-6 px-2 cursor-pointer bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 rounded-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-purple-500/40 flex items-center justify-center gap-2" onClick={() => generate('short')} disabled={generating} aria-busy={generating}>
+                {generating ? 'Generating…' : 'Quick summary'}
               </button>
-              <button className="btn-primary" onClick={() => generate('medium')} disabled={generating}>Medium (10p)</button>
-              <button className="btn-primary" onClick={() => generate('long')} disabled={generating}>Deep (20p+)</button>
+              <button className="btn-primary group h-6 px-2 cursor-pointer bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 rounded-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-purple-500/40 flex items-center justify-center gap-2" onClick={() => generate('medium')} disabled={generating}>Medium summary</button>
+              <button className="btn-primary group h-6 px-2 cursor-pointer bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 rounded-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-purple-500/40 flex items-center justify-center gap-2" onClick={() => generate('long')} disabled={generating}>Deep Dive</button>
 
               <div className="ml-auto flex gap-2">
                 <button className="btn-outline h-8 px-2 cursor-pointer  bg-gray-800/50 hover:bg-gray-700/50 border border-gray-700 hover:border-purple-500/50 rounded-lg font-semibold text-white transition-all" onClick={copySummary} disabled={!summary}>Copy</button>
