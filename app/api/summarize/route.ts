@@ -90,9 +90,15 @@ export async function POST(req: Request) {
     const title = data?.volumeInfo?.title || "Unknown title";
     const author = (data?.volumeInfo?.authors || []).join(", ") || "Unknown";
 
-    const pages = length === "short" ? 5 : length === "medium" ? 10 : 20;
+    const isInsights = length === "insights";
+    const pages = isInsights ? 2 : length === "short" ? 5 : length === "medium" ? 10 : 20;
 
-    const prompt = `Generate a ${pages}-page detailed book summary.\n\nTitle: ${title}\nAuthor: ${author}\n\nInclude:\n- Chapter breakdown\n- Key ideas\n- Major themes\n- Important lessons\n- Quotes (if known)\n- Real examples and explanations`;
+    let prompt = "";
+    if (isInsights) {
+      prompt = `You are an expert summarizer. Produce 8-12 concise insights for the book "${title}" by ${author}. Format the output as numbered or bulleted items. For each insight include a short heading (3-6 words) followed by 1-2 short sentences explaining the insight and why it matters. Keep each item skimmable and actionable; use simple language and include a brief concrete example where helpful.`;
+    } else {
+      prompt = `Generate a ${pages}-page detailed book summary.\n\nTitle: ${title}\nAuthor: ${author}\n\nInclude:\n- Chapter breakdown\n- Key ideas\n- Major themes\n- Important lessons\n- Quotes (if known)\n- Real examples and explanations`;
+    }
 
     // Ensure API key exists
     if (!process.env.GEMINI_API_KEY) {
