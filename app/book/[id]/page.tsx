@@ -409,7 +409,7 @@ export default function BookPage({ params }: any) {
               <div className="flex items-center gap-3 mb-3">
                 <div className="flex gap-2 items-center">
                   <button
-                    className="btn-primary"
+                    className="btn-primary h-8 px-2 cursor-pointer  bg-gray-800/50 hover:bg-gray-700/50 border border-gray-700 hover:border-purple-500/50 rounded-lg font-semibold text-white transition-all"
                     onClick={() => handleSeek(-10)}
                     disabled={generating}
                     aria-label="Rewind 10 seconds"
@@ -419,7 +419,7 @@ export default function BookPage({ params }: any) {
                   </button>
 
                   <button
-                    className="btn-primary"
+                    className="btn-primary h-8 px-2 cursor-pointer  bg-gray-800/50 hover:bg-gray-700/50 border border-gray-700 hover:border-purple-500/50 rounded-lg font-semibold text-white transition-all "
                     onClick={() => handleListenToggle()}
                     disabled={generating}
                     aria-pressed={speaking}
@@ -429,7 +429,7 @@ export default function BookPage({ params }: any) {
                   </button>
 
                   <button
-                    className="btn-primary"
+                    className="btn-primary h-8 px-2 cursor-pointer  bg-gray-800/50 hover:bg-gray-700/50 border border-gray-700 hover:border-purple-500/50 rounded-lg font-semibold text-white transition-all "
                     onClick={() => handleSeek(10)}
                     disabled={generating}
                     aria-label="Forward 10 seconds"
@@ -459,8 +459,13 @@ export default function BookPage({ params }: any) {
                         <span
                           key={i}
                           style={{
-                            backgroundColor: active ? 'rgba(99,102,241,0.15)' : 'transparent',
-                            transition: 'background-color 160ms ease',
+                            backgroundColor: active ? 'rgba(99,102,241,0.36)' : 'transparent',
+                            color: active ? '#3E57FB' : undefined,
+                            padding: active ? '0 6px' : undefined,
+                            borderRadius: active ? '6px' : undefined,
+                            fontWeight: active ? 600 : undefined,
+                            boxShadow: active ? '0 6px 20px rgba(99,102,241,0.12)' : undefined,
+                            transition: 'all 160ms ease',
                           }}
                         >
                           {t}
