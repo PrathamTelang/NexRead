@@ -17,7 +17,7 @@ export function Hero() {
     async function loadBooks() {
       try {
         const res = await fetch(
-          'https://www.googleapis.com/books/v1/volumes?q=subject:fiction&orderBy=newest&maxResults=16'
+          'https://www.googleapis.com/books/v1/volumes?q=subject:fiction&orderBy=newest&maxResults=12'
         )
         const data = await res.json()
         const items =
