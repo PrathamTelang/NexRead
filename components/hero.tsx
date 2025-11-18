@@ -68,16 +68,16 @@ export function Hero() {
         </p>
 
         {/* Search Bar */}
-        <div className='flex justify-center'>
+        <div>
           <BookSearch initialBooks={books} />
         </div>
 
         {/* Mockup Image Placeholder */}
-        <div className="relative w-screen flex justify-center mt-16 rounded-2xl overflow-hidden border h-96">
+        <div className="relative mt-16 rounded-2xl overflow-hidden border border-gray-700/50 shadow-2xl shadow-purple-500/10 bg-gradient-to-b from-gray-800 to-gray-900 h-96">
           <img
             src="/book-summarization-ai-interface-with-purple-and-bl.jpg"
             alt="SummaryGenie interface mockup"
-            className="w-4xl rounded-2xl h-full object-cover"
+            className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
         </div>
