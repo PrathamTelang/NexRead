@@ -10,8 +10,8 @@ const features = [
   },
   {
     icon: Zap,
-    title: 'Generate Short, Medium, or Long Summaries',
-    description: 'Choose exactly how much detail you need in seconds.',
+    title: 'Generate Summaries, deep dives, insights',
+    description: 'Choose exactly what type you need in seconds.',
   },
   {
     icon: Shield,

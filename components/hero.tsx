@@ -55,16 +55,15 @@ export function Hero() {
 
         {/* Main Headline */}
         <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-balance">
-          AI Summaries for Any Book
+          AI Summaries & Insights Instantly
           <span className="block bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-            Instantly
+            Your Book, Simplified
           </span>
         </h1>
 
         {/* Subheadline */}
         <p className="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed text-balance">
-          Choose any book and generate 5, 10, or 20+ page summaries using advanced AI.
-          No login. No limits. Start reading less, understanding more.
+          Summaries, deep dives, insights, and text-to-speech for any book—no login, no limits. Understand more in less time.
         </p>
 
         {/* Search Bar */}
