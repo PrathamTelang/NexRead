@@ -76,12 +76,12 @@ export default function BookSearch({ initialBooks }: { initialBooks?: Book[] }) 
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search books, authors, subjects..."
-          className="px-6 py-4 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/50 text-white placeholder-gray-500 transition-all"
-          style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.06)', color: 'var(--text)' }}
+          className="px-6 py-4 sm:w-lg border border-white rounded-lg focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/50 placeholder-gray-500 transition-all"
+          style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.15)', color: 'var(--text)' }}
         />
         <button
           type="submit"
-          className="group px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 rounded-lg font-semibold text-white transition-all hover:shadow-lg hover:shadow-purple-500/40 flex items-center justify-center gap-2"
+          className="group px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 rounded-lg font-semibold text-white transition-all hover:shadow-lg hover:shadow-purple-500/40 flex items-center justify-center gap-2 cursor-pointer"
           disabled={loading}
         >
           {loading ? "Searching..." : "Search"}

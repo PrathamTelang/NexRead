@@ -27,11 +27,11 @@ export function CTA() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button onClick={scrollToSearch} className="group px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 rounded-lg font-semibold text-white transition-all hover:shadow-lg hover:shadow-purple-500/40 flex items-center justify-center gap-2">
+          <button onClick={scrollToSearch} className="group px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 rounded-lg font-semibold text-white transition-all hover:shadow-lg hover:shadow-purple-500/40 flex items-center justify-center gap-2 cursor-pointer">
             Explore Books
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>
-          <button className="px-8 py-4 bg-gray-800/50 hover:bg-gray-700/50 border border-gray-700 hover:border-purple-500/50 rounded-lg font-semibold text-white transition-all">
+          <button className="px-8 py-4 bg-gray-800/50 hover:bg-gray-700/50 border border-gray-700 hover:border-purple-500/50 rounded-lg font-semibold text-white transition-all cursor-pointer">
             Learn More
           </button>
         </div>
