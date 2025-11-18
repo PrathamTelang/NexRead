@@ -341,10 +341,10 @@ export default function BookPage({ params }: any) {
   const pct = summary && summary.length ? Math.min(100, Math.floor((currentOffset / summary.length) * 100)) : 0;
 
   return (
-    <main className="p-6 min-w-screen min-h-screen  bg-gradient-to-br from-purple-500/10 via-transparent to-blue-500/10">
+    <main className="sm:p-6 p-2 min-w-screen min-h-screen  bg-gradient-to-br from-purple-500/10 via-transparent to-blue-500/10">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-6">
-          <h1 className="text-4xl md:text-5xl font-bold text-balance">{bookInfo?.volumeInfo?.title || 'Generate Book Summary'}</h1>
+        <div className="mb-6 pl-4 sm:pl-0">
+          <h1 className="text-4xl  md:text-5xl font-bold text-balance">{bookInfo?.volumeInfo?.title || 'Generate Book Summary'}</h1>
           <p className="text-lg text-gray-300 max-w-xl ">{bookInfo?.volumeInfo?.authors?.join(', ') || 'Unknown author'}</p>
         </div>
 
@@ -405,7 +405,7 @@ export default function BookPage({ params }: any) {
               </div>
             </div>
 
-            <div className="card p-4">
+            <div className="card">
               <div className="flex items-center gap-3 mb-3">
                 <div className="flex gap-2 items-center">
                   <button
@@ -415,7 +415,7 @@ export default function BookPage({ params }: any) {
                     aria-label="Rewind 10 seconds"
                     title="Rewind 10s"
                   >
-                    « 10s
+                    -10s
                   </button>
 
                   <button
@@ -435,7 +435,7 @@ export default function BookPage({ params }: any) {
                     aria-label="Forward 10 seconds"
                     title="Forward 10s"
                   >
-                    10s »
+                    +10s
                   </button>
                 </div>
 
@@ -461,7 +461,7 @@ export default function BookPage({ params }: any) {
                           style={{
                             backgroundColor: active ? 'rgba(99,102,241,0.36)' : 'transparent',
                             color: active ? '#3E57FB' : undefined,
-                            padding: active ? '0 6px' : undefined,
+                            padding: active ? '' : undefined,
                             borderRadius: active ? '6px' : undefined,
                             fontWeight: active ? 600 : undefined,
                             boxShadow: active ? '0 6px 20px rgba(99,102,241,0.12)' : undefined,
