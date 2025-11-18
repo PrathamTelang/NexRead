@@ -72,15 +72,6 @@ export function Hero() {
           <BookSearch initialBooks={books} />
         </div>
 
-        {/* Mockup Image Placeholder */}
-        <div className="relative mt-16 rounded-2xl overflow-hidden border border-gray-700/50 shadow-2xl shadow-purple-500/10 bg-gradient-to-b from-gray-800 to-gray-900 h-96">
-          <img
-            src="/book-summarization-ai-interface-with-purple-and-bl.jpg"
-            alt="SummaryGenie interface mockup"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-        </div>
       </div>
     </section>
   )
