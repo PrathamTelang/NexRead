@@ -143,3 +143,36 @@ main {
   margin: 0;
 }
 
+/* Custom scrollbar styles (WebKit + Firefox) for elements that opt-in with
+   the `custom-scrollbar` class. Matches the app's indigo/purple accent. */
+.custom-scrollbar {
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #6366f1 transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #7c3aed, #3b82f6);
+  border-radius: 999px;
+  border: 2px solid rgba(0,0,0,0.0);
+  background-clip: padding-box;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  filter: brightness(0.9);
+}
+
+/* Dark mode adjustments */
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #9f7aea, #60a5fa);
+}
+.dark .custom-scrollbar {
+  scrollbar-color: #9f7aea transparent;
+}
+

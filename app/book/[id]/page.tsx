@@ -446,7 +446,7 @@ export default function BookPage({ params }: any) {
                 <div className="h-full bg-indigo-500" style={{ width: `${pct}%` }} />
               </div>
 
-              <div className="max-h-96 overflow-auto prose prose-lg whitespace-pre-line leading-relaxed">
+              <div className="max-h-96 overflow-auto prose prose-lg whitespace-pre-line leading-relaxed custom-scrollbar">
                 {summary ? (
                   <div key={summary}>
                     {tokens.map((t, i) => {
