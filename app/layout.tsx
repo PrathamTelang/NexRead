@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,12 +13,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://nexread.vercel.app"), // ⭐ REQUIRED FOR LINKEDIN
+
   title: "NexRead – AI-Powered Book Summaries",
   description: "AI-powered book summaries and insights to help you read smarter.",
+
   icons: {
     icon: "/icon.png",
   },
-    openGraph: {
+
+  openGraph: {
     title: "NexRead – AI-Powered Book Summaries",
     description:
       "An AI-powered reading app providing book summaries and insights for faster learning.",
@@ -27,7 +30,7 @@ export const metadata: Metadata = {
     siteName: "NexRead",
     images: [
       {
-        url: "https://nexread.vercel.app/og-nexread.png",
+        url: "/og-nexread.png", // ✅ relative is OK when metadataBase is set
         width: 1200,
         height: 630,
         alt: "NexRead – AI-Powered Book Summaries",
@@ -35,27 +38,25 @@ export const metadata: Metadata = {
     ],
     type: "website",
   },
-    twitter: {
+
+  twitter: {
     card: "summary_large_image",
     title: "NexRead – AI-Powered Book Summaries",
     description:
       "AI-powered book summaries and insights to help you read smarter.",
-    images: ["https://nexread.vercel.app/og-nexread.png"],
+    images: ["/og-nexread.png"],
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        
-        <div style={{}}>{children}</div>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        {children}
       </body>
     </html>
   );
