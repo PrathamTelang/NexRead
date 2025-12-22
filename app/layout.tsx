@@ -14,10 +14,33 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "NexRead",
-  description: "AI-Powered Book Summaries and Insights",
+  title: "NexRead – AI-Powered Book Summaries",
+  description: "AI-powered book summaries and insights to help you read smarter.",
   icons: {
     icon: "/icon.png",
+  },
+    openGraph: {
+    title: "NexRead – AI-Powered Book Summaries",
+    description:
+      "An AI-powered reading app providing book summaries and insights for faster learning.",
+    url: "https://nexread.vercel.app",
+    siteName: "NexRead",
+    images: [
+      {
+        url: "https://nexread.vercel.app/og-nexread.png",
+        width: 1200,
+        height: 630,
+        alt: "NexRead – AI-Powered Book Summaries",
+      },
+    ],
+    type: "website",
+  },
+    twitter: {
+    card: "summary_large_image",
+    title: "NexRead – AI-Powered Book Summaries",
+    description:
+      "AI-powered book summaries and insights to help you read smarter.",
+    images: ["https://nexread.vercel.app/og-nexread.png"],
   },
 };
 
