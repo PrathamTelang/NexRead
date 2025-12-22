@@ -13,7 +13,6 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  // 🔴 THIS WAS THE MISSING / WRONG PART
   metadataBase: new URL("https://nex-read.vercel.app"),
 
   title: "NexRead – AI-Powered Book Summaries",
