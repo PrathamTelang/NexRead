@@ -21,6 +21,18 @@ export default function BookPage({ params }: any) {
 
   const CHARS_PER_SECOND = 19; // heuristic for seeking (words/sec * avg chars)
 
+  // Helper function to strip markdown formatting from text
+  const stripMarkdown = (text: string): string => {
+    return text
+      .replace(/\*\*/g, "") // Bold markers **text**
+      .replace(/\*/g, "") // Italic markers *text*
+      .replace(/##/g, "") // Headings ##
+      .replace(/#/g, "") // Headings #
+      .replace(/`/g, "") // Code markers `code`
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1") // Links [text](url)
+      .replace(/^\s*[-*+]\s+/gm, ""); // Bullet points
+  };
+
   // Fetch book metadata (cover, title, authors) on mount.
   // Try Google Books first; if that fails (or the id looks like an
   // OpenLibrary id) fall back to OpenLibrary so OL ids work.
@@ -223,7 +235,8 @@ export default function BookPage({ params }: any) {
       synth.cancel();
       const text = summary.slice(Math.max(0, Math.min(summary.length, Math.floor(offsetChars))));
       if (!text) return;
-      const u = new SpeechSynthesisUtterance(text);
+      const cleanText = stripMarkdown(text);
+      const u = new SpeechSynthesisUtterance(cleanText);
       u.lang = "en-US";
       u.rate = 1;
       u.onstart = () => {
