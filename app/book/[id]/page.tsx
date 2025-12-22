@@ -238,7 +238,24 @@ export default function BookPage({ params }: any) {
       const cleanText = stripMarkdown(text);
       const u = new SpeechSynthesisUtterance(cleanText);
       u.lang = "en-US";
-      u.rate = 1;
+      u.rate = 0.9; // Slightly slower for clearer speech
+      u.pitch = 1; // Natural pitch
+      u.volume = 1; // Full volume
+      
+      // Try to select a natural-sounding voice
+      const voices = synth.getVoices();
+      if (voices.length > 0) {
+        // Prefer Google voices or Microsoft voices for better quality
+        const preferredVoice = voices.find((v: any) => 
+          v.name.includes("Google") || 
+          v.name.includes("Microsoft") || 
+          v.name.includes("Natural") ||
+          v.name.includes("Premium")
+        ) || voices.find((v: any) => v.default) || voices[0];
+        if (preferredVoice) {
+          u.voice = preferredVoice;
+        }
+      }
       u.onstart = () => {
         setSpeaking(true);
         setPaused(false);
