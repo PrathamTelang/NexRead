@@ -13,7 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://nexread.vercel.app"), // ⭐ REQUIRED FOR LINKEDIN
+  // 🔴 THIS WAS THE MISSING / WRONG PART
+  metadataBase: new URL("https://nex-read.vercel.app"),
 
   title: "NexRead – AI-Powered Book Summaries",
   description: "AI-powered book summaries and insights to help you read smarter.",
@@ -26,11 +27,11 @@ export const metadata: Metadata = {
     title: "NexRead – AI-Powered Book Summaries",
     description:
       "An AI-powered reading app providing book summaries and insights for faster learning.",
-    url: "https://nexread.vercel.app",
+    url: "https://nex-read.vercel.app",
     siteName: "NexRead",
     images: [
       {
-        url: "/og-nexread.png", // ✅ relative is OK when metadataBase is set
+        url: "/og-nexread.png",
         width: 1200,
         height: 630,
         alt: "NexRead – AI-Powered Book Summaries",
