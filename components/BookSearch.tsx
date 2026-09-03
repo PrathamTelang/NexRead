@@ -68,53 +68,90 @@ export default function BookSearch({ initialBooks }: { initialBooks?: Book[] }) 
     setDebouncedQuery(query.trim());
   };
 
-  return (
-    <div >
-      <form onSubmit={onSubmit} className="flex flex-col sm:flex-row justify-center gap-2 mb-4  sm:flex">
+ return (
+  <div className="mt-10">
+    <form
+      onSubmit={onSubmit}
+      className="mx-auto flex max-w-2xl flex-col gap-3 sm:flex-row"
+    >
+      <div className="relative flex-1">
         <input
           id="book-search-input"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search books, authors, subjects..."
-          className="px-6 py-4 sm:w-lg border border-white rounded-lg focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/50 placeholder-gray-500 transition-all"
-          style={{ background: 'transparent', border: '1px solid rgba(255,255,255,0.15)', color: 'var(--text)' }}
+          className="
+            h-12
+            w-full
+            rounded-xl
+            border
+            border-zinc-800
+            bg-zinc-900/40
+            px-4
+            text-sm
+            text-zinc-100
+            placeholder:text-zinc-500
+            outline-none
+            transition-colors
+            focus:border-zinc-700
+          "
         />
-        <button
-          type="submit"
-          className="group px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 rounded-lg font-semibold text-white transition-all hover:shadow-lg hover:shadow-purple-500/40 flex items-center justify-center gap-2 cursor-pointer"
-          disabled={loading}
-        >
-          {loading ? "Searching..." : "Search"}
-        </button>
-      </form>
-
-      <div className="flex items-center gap-3 mb-4">
-        {error && <p className="text-red-600">Error: {error}</p>}
-        {loading && (
-          <svg
-            className="animate-spin h-5 w-5 text-gray-600"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <circle
-              className="opacity-25"
-              cx="12"
-              cy="12"
-              r="10"
-              stroke="currentColor"
-              strokeWidth="4"
-            ></circle>
-            <path
-              className="opacity-75"
-              fill="currentColor"
-              d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
-            ></path>
-          </svg>
-        )}
       </div>
 
-      <BookGrid books={books} />
+      <button
+        type="submit"
+        disabled={loading}
+        className="
+          h-12
+          rounded-xl
+          bg-gray-100
+          cursor-pointer
+          px-10
+          text-sm
+          font-medium
+          text-black
+          transition-opacity
+          hover:opacity-90
+          disabled:cursor-not-allowed
+          disabled:opacity-60
+        "
+      >
+        {loading ? "Searching..." : "Search"}
+      </button>
+    </form>
+
+    <div className="mx-auto mt-4 flex max-w-2xl items-center">
+      {error && (
+        <p className="text-sm text-red-500">
+          {error}
+        </p>
+      )}
+
+      {loading && (
+        <svg
+          className="h-4 w-4 animate-spin text-zinc-500"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <circle
+            className="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            strokeWidth="4"
+          />
+          <path
+            className="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+          />
+        </svg>
+      )}
     </div>
-  );
+
+    <BookGrid books={books} />
+  </div>
+);
 }

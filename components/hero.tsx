@@ -1,15 +1,12 @@
- 'use client'
+'use client'
 
 import React, { useEffect, useState } from 'react'
-import { Search, Sparkles } from './icons'
-import { useRouter } from 'next/navigation'
 import BookSearch from './BookSearch'
 import { Book } from '@/types/Book'
+import { Sparkles } from 'lucide-react'
 
 export function Hero() {
   const [books, setBooks] = useState<Book[]>([])
-  const [searchValue, setSearchValue] = useState('')
-  const router = useRouter()
 
   useEffect(() => {
     let mounted = true
@@ -17,9 +14,11 @@ export function Hero() {
     async function loadBooks() {
       try {
         const res = await fetch(
-          'https://www.googleapis.com/books/v1/volumes?q=subject:fiction&orderBy=newest&maxResults=12'
-        )
+  "/api/books?q=subject:fiction&maxResults=12"
+)
+
         const data = await res.json()
+
         const items =
           data.items?.map((item: any) => ({
             id: item.id,
@@ -27,50 +26,62 @@ export function Hero() {
             authors: item.volumeInfo.authors,
             thumbnail: item.volumeInfo.imageLinks?.thumbnail,
           })) || []
+
         if (mounted) setBooks(items)
       } catch (err) {
-        // swallow or handle fetch errors here
-        console.error('Failed to load books', err)
+        console.error(err)
       }
     }
 
     loadBooks()
+
     return () => {
       mounted = false
     }
   }, [])
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-transparent to-blue-500/10" />
-      <div className="absolute top-20 right-10 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-20 left-10 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl animate-pulse" />
+    <section className="relative overflow-hidden">
+      {/* Grid */}
+      <div className="absolute inset-0 grid-border opacity-40" />
 
-      <div className="relative z-10 w-screen mx-auto text-center">
-        {/* Tagline */}
-        <div className="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20">
-          <Sparkles className="w-4 h-4 text-purple-400" />
-          <span className="text-sm font-medium text-purple-200">Powered by Gemini AI</span>
+      {/* Glow */}
+      <div className="absolute inset-0 hero-gradient" />
+
+      <div className="section relative z-10">
+        <div className="mx-auto mt-10 flex min-h-[85vh] max-w-4xl flex-col items-center justify-center text-center">
+          
+          {/* Badge */}
+          <div className="mb-8 flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-900/50 px-4 py-2 text-xs text-zinc-400">
+            <Sparkles className="h-3.5 w-3.5" />
+            Powered by Gemini AI
+          </div>
+
+          {/* Headline */}
+          <h1 className="max-w-4xl text-5xl font-medium tracking-tight md:text-7xl">
+  The fastest way
+  <br />
+  to understand any book.
+</h1>
+
+<p className="mt-6 max-w-2xl text-base leading-7 text-zinc-500 md:text-lg">
+  Summaries, insights, and audio explanations powered by AI. Learn the core ideas without spending hours reading.
+</p>
+
+          {/* Search */}
+          <div className="mt-12 w-full max-w-3xl">
+            <BookSearch initialBooks={books} />
+          </div>
+
+          {/* Stats */}
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-8 text-sm text-zinc-500">
+            <span>10,000+ books</span>
+            <span>•</span>
+            <span>No login required</span>
+            <span>•</span>
+            <span>Free forever</span>
+          </div>
         </div>
-
-        {/* Main Headline */}
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-balance">
-          AI Summaries & Insights Instantly
-          <span className="block bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-            Your Book, Simplified
-          </span>
-        </h1>
-
-        {/* Subheadline */}
-        <p className="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed text-balance">
-          Summaries, deep dives, insights, and text-to-speech for any book—no login, no limits. Understand more in less time.
-        </p>
-
-        {/* Search Bar */}
-        <div>
-          <BookSearch initialBooks={books} />
-        </div>
-
       </div>
     </section>
   )

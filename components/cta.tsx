@@ -1,39 +1,86 @@
- 'use client'
+'use client'
 
 import { ArrowRight } from './icons'
 
 export function CTA() {
   const scrollToSearch = () => {
     const el = document.getElementById('book-search-input') as HTMLInputElement | null
+
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      el.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center',
+      })
+
       el.focus()
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
     }
   }
 
   return (
-    <section className="py-24 px-4 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 via-transparent to-blue-600/20" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
+    <section className="section py-24">
+      <div
+        className="
+          overflow-hidden
+          rounded-3xl
+          border
+          border-zinc-800
+          bg-zinc-950
+        "
+      >
+        <div className="mx-auto max-w-3xl px-8 py-20 text-center md:px-16">
+          <p className="mb-4 text-xs uppercase tracking-[0.2em] text-zinc-500">
+            Get Started
+          </p>
 
-      <div className="relative z-10 max-w-3xl mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
-          Start Summarizing Now
-        </h2>
-        <p className="text-lg text-gray-300 mb-12 max-w-xl mx-auto">
-          Join thousands of readers who are learning smarter and faster with AI-powered book summaries.
-        </p>
+          <h2 className="text-3xl font-medium tracking-tight md:text-5xl">
+            Start reading smarter.
+          </h2>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button onClick={scrollToSearch} className="group px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 rounded-lg font-semibold text-white transition-all hover:shadow-lg hover:shadow-purple-500/40 flex items-center justify-center gap-2 cursor-pointer">
-            Explore Books
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </button>
-          <button className="px-8 py-4 bg-gray-800/50 hover:bg-gray-700/50 border border-gray-700 hover:border-purple-500/50 rounded-lg font-semibold text-white transition-all cursor-pointer">
-            Learn More
-          </button>
+          <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-zinc-500">
+            Search a book, generate a summary, and understand the key ideas
+            in minutes.
+          </p>
+
+          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <button
+              onClick={scrollToSearch}
+              className="
+                inline-flex
+                h-11
+                items-center
+                gap-2
+                rounded-xl
+                bg-white
+                px-5
+                text-sm
+                font-medium
+                text-black
+                transition-opacity
+                hover:opacity-90
+              "
+            >
+              Search Books
+              <ArrowRight className="h-4 w-4" />
+            </button>
+
+            <button
+              className="
+                inline-flex
+                h-11
+                items-center
+                rounded-xl
+                border
+                border-zinc-800
+                px-5
+                text-sm
+                text-zinc-300
+                transition-colors
+                hover:bg-zinc-900
+              "
+            >
+              Browse Library
+            </button>
+          </div>
         </div>
       </div>
     </section>

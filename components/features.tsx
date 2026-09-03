@@ -5,52 +5,92 @@ import { BookOpen, Zap, Shield, Users } from './icons'
 const features = [
   {
     icon: BookOpen,
-    title: 'Pick From Thousands of Books',
-    description: 'Access our vast library of books across all genres and categories.',
+    title: 'Large Book Library',
+    description:
+      'Search and explore thousands of books across categories and genres.',
   },
   {
     icon: Zap,
-    title: 'Generate Summaries, deep dives, insights',
-    description: 'Choose exactly what type you need in seconds.',
+    title: 'Multiple Reading Modes',
+    description:
+      'Generate summaries, deep dives, key insights, and chapter breakdowns.',
   },
   {
     icon: Shield,
-    title: 'Powered by Gemini AI (Free)',
-    description: 'Advanced AI technology with zero subscription fees.',
+    title: 'Powered by Gemini',
+    description:
+      'Fast, reliable AI-generated insights with no subscriptions required.',
   },
   {
     icon: Users,
-    title: 'No Login. No Limits.',
-    description: 'Start summarizing instantly without creating an account.',
+    title: 'No Account Required',
+    description:
+      'Search, summarize, and learn instantly without creating an account.',
   },
 ]
 
 export function Features() {
   return (
-    <section className="py-24 px-4 relative">
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-transparent to-purple-500/5" />
+    <section
+      id="features"
+      className="section py-24"
+    >
+      <div className="mx-auto max-w-5xl">
+        {/* Header */}
+        <div className="mb-16 max-w-2xl">
+          <p className="mb-4 text-xs uppercase tracking-[0.2em] text-zinc-500">
+            Features
+          </p>
 
-      <div className="relative z-10 max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-balance">Why Choose NexRead?</h2>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            Everything you need to summarize books and learn faster.
+          <h2 className="text-3xl font-medium tracking-tight md:text-5xl">
+            Everything you need to learn faster.
+          </h2>
+
+          <p className="mt-4 text-base leading-7 text-zinc-500">
+            Built for readers who want to understand more in less time.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {features.map((feature, index) => {
+        {/* Feature Grid */}
+        <div className="grid gap-px overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-800 md:grid-cols-2">
+          {features.map((feature) => {
             const Icon = feature.icon
+
             return (
               <div
-                key={index}
-                className="group p-8 rounded-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10"
+                key={feature.title}
+                className="
+                  group
+                  bg-background
+                  p-8
+                  transition-colors
+                  hover:bg-zinc-950/50
+                "
               >
-                <div className="mb-4 inline-flex p-3 rounded-lg bg-gradient-to-br from-purple-500/20 to-blue-500/20 group-hover:from-purple-500/30 group-hover:to-blue-500/30 transition-all">
-                  <Icon className="w-6 h-6 text-purple-400" />
+                <div
+                  className="
+                    mb-6
+                    flex
+                    h-11
+                    w-11
+                    items-center
+                    justify-center
+                    rounded-xl
+                    border
+                    border-zinc-800
+                    bg-zinc-900
+                  "
+                >
+                  <Icon className="h-5 w-5 text-zinc-300" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
-                <p className="text-gray-400">{feature.description}</p>
+
+                <h3 className="text-lg font-medium text-zinc-100">
+                  {feature.title}
+                </h3>
+
+                <p className="mt-3 text-sm leading-6 text-zinc-500">
+                  {feature.description}
+                </p>
               </div>
             )
           })}

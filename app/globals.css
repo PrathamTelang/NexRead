@@ -1,178 +1,298 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated theme colors to match SummaryGenie's dark, futuristic aesthetic */
-  --background: oklch(0.08 0 0);
-  --foreground: oklch(0.95 0 0);
-  --card: oklch(0.12 0 0);
-  --card-foreground: oklch(0.95 0 0);
-  --popover: oklch(0.12 0 0);
-  --popover-foreground: oklch(0.95 0 0);
-  --primary: oklch(0.6 0.2 270);
-  --primary-foreground: oklch(0.95 0 0);
-  --secondary: oklch(0.15 0 0);
-  --secondary-foreground: oklch(0.95 0 0);
-  --muted: oklch(0.25 0 0);
-  --muted-foreground: oklch(0.65 0 0);
-  --accent: oklch(0.6 0.15 250);
-  --accent-foreground: oklch(0.95 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.95 0 0);
-  --border: oklch(0.2 0 0);
-  --input: oklch(0.15 0 0);
-  --ring: oklch(0.6 0.15 270);
-  --chart-1: oklch(0.6 0.2 270);
-  --chart-2: oklch(0.55 0.2 260);
-  --chart-3: oklch(0.5 0.18 250);
-  --chart-4: oklch(0.65 0.2 280);
-  --chart-5: oklch(0.7 0.18 290);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.12 0 0);
-  --sidebar-foreground: oklch(0.95 0 0);
-  --sidebar-primary: oklch(0.6 0.2 270);
-  --sidebar-primary-foreground: oklch(0.95 0 0);
-  --sidebar-accent: oklch(0.2 0 0);
-  --sidebar-accent-foreground: oklch(0.95 0 0);
-  --sidebar-border: oklch(0.2 0 0);
-  --sidebar-ring: oklch(0.6 0.15 270);
+  --background: #09090b;
+  --foreground: #fafafa;
+
+  --card: #111113;
+  --card-foreground: #fafafa;
+
+  --border: #27272a;
+
+  --muted: #18181b;
+  --muted-foreground: #71717a;
+
+  --primary: #fafafa;
+  --primary-foreground: #09090b;
+
+  --radius: 14px;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --background: #09090b;
+  --foreground: #fafafa;
+
+  --card: #111113;
+  --card-foreground: #fafafa;
+
+  --border: #27272a;
+
+  --muted: #18181b;
+  --muted-foreground: #71717a;
+
+  --primary: #fafafa;
+  --primary-foreground: #09090b;
 }
 
 @theme inline {
-  --font-sans: 'Geist', 'Geist Fallback';
-  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --font-sans: "Geist";
+  --font-mono: "Geist Mono";
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-border: var(--border);
+
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-sans), sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  button,
+  input,
+  textarea {
+    transition: all 0.2s ease;
+  }
+
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.08);
   }
 }
 
-html, body, #__next {
-  height: 100%;
+html,
+body,
+#__next {
+  min-height: 100%;
 }
 
 body {
-  background: var(--color-background);
-  color: var(--color-foreground);
-  font-family: var(--font-sans), system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
-
-html { scroll-behavior: smooth; }
 
 main {
   width: 100%;
-  margin: 0;
 }
 
-/* Custom scrollbar styles (WebKit + Firefox) for elements that opt-in with
-   the `custom-scrollbar` class. Matches the app's indigo/purple accent. */
+/* ========================================
+   Layout
+======================================== */
+
+.section {
+  max-width: 1080px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+.section-sm {
+  max-width: 760px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+/* ========================================
+   Typography
+======================================== */
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-weight: 600;
+}
+
+.section-description {
+  max-width: 600px;
+  color: var(--muted-foreground);
+  line-height: 1.7;
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+/* ========================================
+   Surfaces
+======================================== */
+
+.card {
+  background: var(--card);
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.surface {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.page-divider {
+  height: 1px;
+  background: var(--border);
+}
+
+/* ========================================
+   Hero Effects
+======================================== */
+
+.hero-gradient {
+  background:
+    radial-gradient(
+      circle at top center,
+      rgba(255, 255, 255, 0.05),
+      transparent 55%
+    );
+}
+
+.grid-border {
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.03) 1px,
+      transparent 1px
+    );
+
+  background-size: 80px 80px;
+}
+
+/* ========================================
+   Buttons
+======================================== */
+
+.button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 40px;
+  padding-inline: 16px;
+
+  border-radius: 10px;
+
+  background: white;
+  color: black;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  transition: all 0.2s ease;
+}
+
+.button-primary:hover {
+  opacity: 0.92;
+}
+
+.button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 40px;
+  padding-inline: 16px;
+
+  border-radius: 10px;
+
+  border: 1px solid var(--border);
+
+  background: transparent;
+  color: white;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  transition: all 0.2s ease;
+}
+
+.button-secondary:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* ========================================
+   Scrollbar
+======================================== */
+
 .custom-scrollbar {
-  /* Firefox */
   scrollbar-width: thin;
-  scrollbar-color: #6366f1 transparent;
+  scrollbar-color: #3f3f46 transparent;
 }
 
 .custom-scrollbar::-webkit-scrollbar {
   width: 10px;
-  height: 10px;
 }
+
 .custom-scrollbar::-webkit-scrollbar-track {
   background: transparent;
 }
+
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #7c3aed, #3b82f6);
+  background: #3f3f46;
   border-radius: 999px;
-  border: 2px solid rgba(0,0,0,0.0);
-  background-clip: padding-box;
 }
+
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  filter: brightness(0.9);
+  background: #52525b;
 }
 
-/* Dark mode adjustments */
-.dark .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #9f7aea, #60a5fa);
-}
-.dark .custom-scrollbar {
-  scrollbar-color: #9f7aea transparent;
-}
+/* ========================================
+   Responsive
+======================================== */
 
+@media (max-width: 768px) {
+  .section,
+  .section-sm {
+    padding-inline: 20px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+}

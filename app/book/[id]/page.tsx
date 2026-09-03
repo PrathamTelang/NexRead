@@ -370,59 +370,110 @@ export default function BookPage({ params }: any) {
 
   const pct = summary && summary.length ? Math.min(100, Math.floor((currentOffset / summary.length) * 100)) : 0;
 
+  const actionButton =
+  `
+  h-10
+  px-4
+  rounded-xl
+  border
+  border-zinc-800
+  bg-zinc-900
+  text-sm
+  cursor-pointer
+  font-medium
+  transition-all
+  hover:bg-zinc-800
+  `;
+
+
+const audioButtonClass =
+  "h-9 px-3 rounded-lg border border-zinc-800 bg-zinc-950/80 hover:bg-zinc-900 text-sm font-medium text-zinc-200 transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed";
+
+
   return (
-    <main className="sm:p-6 p-2 min-w-screen min-h-screen  bg-gradient-to-br from-purple-500/10 via-transparent to-blue-500/10">
-      <div className="max-w-6xl mx-auto">
+    <main className="min-h-screen py-10">
+      <div className="section">
         <div className="mb-6 pl-4 sm:pl-0">
-          <h1 className="text-4xl  md:text-5xl font-bold text-balance">{bookInfo?.volumeInfo?.title || 'Generate Book Summary'}</h1>
-          <p className="text-lg text-gray-300 max-w-xl ">{bookInfo?.volumeInfo?.authors?.join(', ') || 'Unknown author'}</p>
+          <h1 className="text-xl md:text-2xl font-semibold tracking-tight">{bookInfo?.volumeInfo?.title || 'Generate Book Summary'}</h1>
+          <p className="mt-2 text-zinc-500">{bookInfo?.volumeInfo?.authors?.join(', ') || 'Unknown author'}</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
           <aside className="md:col-span-1">
-            <div className="card p-4 flex flex-col items-center text-center rounded-lg border   border-gray-200/10 shadow-[inset_-12px_-8px_40px_#46464620]">
+            <div
+  className="
+    rounded-lg
+    border
+    border-zinc-800
+    bg-zinc-900/40
+    p-6
+    flex flex-col
+    justify-center items-center
+    text-center
+    backdrop-blur-sm
+  "
+>
               {loadingInfo && <p className="muted">Loading book info...</p>}
               {bookInfo?.volumeInfo?.imageLinks?.thumbnail ? (
                 <img
                   src={bookInfo.volumeInfo.imageLinks.thumbnail}
                   alt={bookInfo.volumeInfo.title}
-                  className="w-48 h-auto mb-4 shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]"
+                  className="
+  w-48
+  rounded-xl
+  border
+  border-zinc-800
+  shadow-lg
+  flex justify-center items-center
+"
                 />
               ) : (
-                <div className="w-48 h-64 rounded-lg bg-gradient-to-br from-gray-200 to-gray-100 mb-4 flex items-center justify-center">No cover</div>
+                <div className="w-48 h-64 rounded-lg  from-gray-200 to-gray-100 mb-4 flex items-center justify-center">No cover</div>
               )}
 
-              <h2 className="font-semibold text-lg">{bookInfo?.volumeInfo?.title || 'Unknown Title'}</h2>
+              <h2 className="font-semibold text-md mt-2">{bookInfo?.volumeInfo?.title || 'Unknown Title'}</h2>
               <p className="muted mb-3">{bookInfo?.volumeInfo?.authors?.join(', ') || 'Unknown Author'}</p>
 
               <div className="flex gap-2">
                 <a
-                  className="btn-primary"
+                  className="btn-primary text-sm"
                   href={bookInfo?.volumeInfo?.infoLink || '#'}
                   target="_blank"
                   rel="noreferrer"
                 >
                   View Source
                 </a>
-                <button className="btn-outline" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                <button className="btn-outline text-sm" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                   Top
                 </button>
               </div>
             </div>
           </aside>
 
-          <section className="md:col-span-2 bg-white/5 p-4 rounded-lg border border-gray-200/10 shadow-[inset_-12px_-8px_40px_#46464620]">
+          <section
+  className="
+    md:col-span-2
+    rounded-lg
+    border
+    border-zinc-800
+    bg-zinc-900/40
+    p-6
+    backdrop-blur-sm
+  "
+>
             <div className="flex flex-wrap gap-3 items-center mb-4">
-              <button className="btn-primary group h-10 px-2 cursor-pointer bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 rounded-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-purple-500/40 flex items-center justify-center gap-2" onClick={() => generate('short')} disabled={generating} aria-busy={generating}>
+              <button className={actionButton} onClick={() => generate('short')} disabled={generating} aria-busy={generating}>
                 {generating ? 'Generating…' : 'Quick summary'}
               </button>
-              <button className="btn-primary group h-10 px-2 cursor-pointer bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 rounded-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-purple-500/40 flex items-center justify-center gap-2" onClick={() => generate('insights')} disabled={generating}>Insights</button>
-              <button className="btn-primary group h-10 px-2 cursor-pointer bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 rounded-sm font-semibold text-white transition-all hover:shadow-lg hover:shadow-purple-500/40 flex items-center justify-center gap-2" onClick={() => generate('long')} disabled={generating}>Deep Dive</button>
+              <button className={actionButton} onClick={() => generate('insights')} disabled={generating}>Insights</button>
+              <button className={actionButton} onClick={() => generate('long')} disabled={generating}>Deep Dive</button>
 
               <div className="ml-auto flex gap-2">
-                <button className="btn-outline h-8 px-2 cursor-pointer  bg-gray-800/50 hover:bg-gray-700/50 border border-gray-700 hover:border-purple-500/50 rounded-lg font-semibold text-white transition-all" onClick={copySummary} disabled={!summary}>Copy</button>
+                <button className="btn-outline h-8 px-2 cursor-pointer  bg-zinc-900
+hover:bg-zinc-800 border border-zinc-800 hover:border-purple-500/50 rounded-lg font-semibold text-white transition-all" onClick={copySummary} disabled={!summary}>Copy</button>
                 <button
-                  className="btn-outline cursor-pointer h-8 px-2 bg-gray-800/50 hover:bg-gray-700/50 border border-gray-700 hover:border-purple-500/50 rounded-lg font-semibold text-white transition-all"
+                  className="btn-outline cursor-pointer h-8 px-2 bg-zinc-900
+hover:bg-zinc-800 border border-zinc-800 hover:border-purple-500/50 rounded-lg font-semibold text-white transition-all"
                   onClick={() => {
                     if (!summary) return;
                     const w = window.open();
@@ -439,44 +490,50 @@ export default function BookPage({ params }: any) {
               <div className="flex items-center gap-3 mb-3">
                 <div className="flex gap-2 items-center">
                   <button
-                    className="btn-primary h-8 px-2 cursor-pointer  bg-gray-800/50 hover:bg-gray-700/50 border border-gray-700 hover:border-purple-500/50 rounded-lg font-semibold text-white transition-all"
-                    onClick={() => handleSeek(-10)}
-                    disabled={generating}
-                    aria-label="Rewind 10 seconds"
-                    title="Rewind 10s"
-                  >
-                    -10s
-                  </button>
+  className={audioButtonClass}
+  onClick={() => handleSeek(-10)}
+  disabled={generating}
+>
+  -10s
+</button>
 
-                  <button
-                    className="btn-primary h-8 px-2 cursor-pointer  bg-gray-800/50 hover:bg-gray-700/50 border border-gray-700 hover:border-purple-500/50 rounded-lg font-semibold text-white transition-all "
-                    onClick={() => handleListenToggle()}
-                    disabled={generating}
-                    aria-pressed={speaking}
-                    aria-label={speaking ? 'Pause' : paused ? 'Resume' : 'Play'}
-                  >
-                    {speaking ? 'Pause' : paused ? 'Resume' : 'Play'}
-                  </button>
+<button
+  className={audioButtonClass}
+  onClick={() => handleListenToggle()}
+  disabled={generating}
+  aria-pressed={speaking}
+>
+  {speaking ? "Pause" : paused ? "Resume" : "Play"}
+</button>
 
-                  <button
-                    className="btn-primary h-8 px-2 cursor-pointer  bg-gray-800/50 hover:bg-gray-700/50 border border-gray-700 hover:border-purple-500/50 rounded-lg font-semibold text-white transition-all "
-                    onClick={() => handleSeek(10)}
-                    disabled={generating}
-                    aria-label="Forward 10 seconds"
-                    title="Forward 10s"
-                  >
-                    +10s
-                  </button>
+<button
+  className={audioButtonClass}
+  onClick={() => handleSeek(10)}
+  disabled={generating}
+>
+  +10s
+</button>
                 </div>
 
                 <div className="ml-3 text-sm muted">{speaking ? 'Playing summary…' : paused ? 'Paused' : 'Tap Play to hear the summary'}</div>
               </div>
 
-              <div className="w-full h-2 bg-gray-200 rounded overflow-hidden mb-3">
-                <div className="h-full bg-indigo-500" style={{ width: `${pct}%` }} />
+              <div className="w-full h-1.5 bg-zinc-800 rounded-full overflow-hidden mb-4">
+                <div className="h-full bg-white transition-all duration-300" style={{ width: `${pct}%` }} />
               </div>
 
-              <div className="max-h-96 overflow-auto prose prose-lg whitespace-pre-line leading-relaxed custom-scrollbar">
+              <div
+  className="
+    max-h-[600px]
+    overflow-auto
+    whitespace-pre-line
+    leading-8
+    text-[15px]
+    text-zinc-300
+    custom-scrollbar
+    pr-2
+  "
+>
                 {summary ? (
                   <div key={summary}>
                     {tokens.map((t, i) => {
@@ -487,19 +544,15 @@ export default function BookPage({ params }: any) {
                       const active = !isWhitespace && currentOffset >= start && currentOffset < end;
                       return (
                         <span
-                          key={i}
-                          style={{
-                            backgroundColor: active ? 'rgba(99,102,241,0.36)' : 'transparent',
-                            color: active ? '#3E57FB' : undefined,
-                            padding: active ? '' : undefined,
-                            borderRadius: active ? '6px' : undefined,
-                            fontWeight: active ? 600 : undefined,
-                            boxShadow: active ? '0 6px 20px rgba(99,102,241,0.12)' : undefined,
-                            transition: 'all 160ms ease',
-                          }}
-                        >
-                          {t}
-                        </span>
+  key={i}
+  style={{
+    backgroundColor: active ? '#F3F4F6' : 'transparent',
+    color: active ? '#111827' : undefined,
+    transition: 'all 160ms ease',
+  }}
+>
+  {t}
+</span>
                       );
                     })}
                   </div>
