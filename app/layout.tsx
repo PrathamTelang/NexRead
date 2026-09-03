@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   description: "AI-powered book summaries and insights to help you read smarter.",
 
   icons: {
-    icon: "/icon.png",
+    icon: "/nexReadLogo.png",
   },
 
   openGraph: {
